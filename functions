@@ -1,0 +1,36 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.15;
+
+
+contract pay {
+    address payable public owner;
+
+    constructor(){
+        owner = payable (msg.sender);
+    }
+
+    modifier onlyOwner{
+        require(owner==msg.sender,"Only owner can access");
+        _;
+    }
+
+    function get() public view onlyOwner returns (address) {
+        return(owner);
+    }
+
+    function getBalance() external view returns(uint){
+        return address(this).balance;
+    }
+
+    function deposit () external payable {}
+    
+
+    function addition(uint a, uint b) public pure returns(uint){
+        return a +b;
+    }
+    
+
+
+
+
+}
