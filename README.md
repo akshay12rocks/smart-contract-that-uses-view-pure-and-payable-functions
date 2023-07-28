@@ -1,0 +1,1 @@
+# smart-contract-that-uses-view-pure-and-payable-functions
